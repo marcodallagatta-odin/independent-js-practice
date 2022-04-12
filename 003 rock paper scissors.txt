@@ -1,0 +1,40 @@
+User has choosen: rock
+Computer has choosen: rock
+You lost :(
+
+User has choosen: rock
+Computer has choosen: scissors
+YOU WON!
+
+User has choosen: rock
+Computer has choosen: rock
+You lost :(
+
+Your selection "ducks" wasn't valid
+please choose either "rock", "paper" or "scissors"
+
+User has choosen: paper
+Computer has choosen: paper
+You lost :(
+
+User has choosen: paper
+Computer has choosen: scissors
+You lost :(
+
+User has choosen: paper
+Computer has choosen: scissors
+You lost :(
+
+User has choosen: scissors
+Computer has choosen: scissors
+You lost :(
+
+User has choosen: scissors
+Computer has choosen: paper
+YOU WON!
+
+User has choosen: scissors
+Computer has choosen: scissors
+You lost :(
+
+[Finished in 614ms]
