@@ -1,4 +1,5 @@
 original: 20,3,12,23,18,270,9,546,3217,1
 descending: 3217,546,270,23,20,18,12,9,3,1
 three highest: 3217, 546, 270
-[Finished in 155ms]
+third highest: 270
+[Finished in 166ms]
