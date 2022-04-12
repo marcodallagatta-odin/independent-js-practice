@@ -16,4 +16,4 @@ function thirdHighest(numbers) {
 	console.log(`three highest: ${array[0]}, ${array[1]}, ${array[2]}`);
 }
 
-thirdHighest('20 3 12 23 18 270 9 546');
+thirdHighest('20 3 12 23 18 270 9 546 3217 1');
