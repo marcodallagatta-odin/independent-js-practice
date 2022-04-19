@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabbed Nav</title>
+	<style>
+		tab-panel {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+		button {
+			background: white;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<tab-panel>
+		<div data-tabname="one">Tab one</div>
+		<div data-tabname="two">Tab two</div>
+		<div data-tabname="three">Tab three</div>
+	</tab-panel>
+	<div id="content">Please select a tab</div>
+	<script>
+		function asTabs(node) {
+			// array with data-tabnames
+			const tabs = Array.from(node.children);
+			// array with buttons inside data-tabnames
+			let tabsButtons = [];
+			// content
+			const div = document.querySelector('#content');
+
+			// transform data-tabnames into buttons
+			let counter = 0;
+			function makeButton(i) {
+				counter++;
+				tabsButtons.push(`button${counter}`);
+				return `<button class='button${counter}'>'${i.innerHTML}'</button>`;
+			}
+			tabs.forEach(element => {
+				element.innerHTML = makeButton(element);
+			});
+
+			function insertContent(buttonName) {
+				div.innerHTML = `Hello, I am the content of ${buttonName}.<br>Here's a cute pic:<br>`;
+				const pic = document.createElement("img");
+				div.appendChild(pic);
+				if (buttonName === 'button1') {
+					pic.src = 'https://placekitten.com/g/300/200';
+				} else if (buttonName === 'button2') {
+					pic.src = 'https://placekitten.com/g/300/201';
+				} else {
+					pic.src = 'https://placekitten.com/g/300/199';
+				}
+			}
+
+			tabsButtons.forEach(element => {
+				let tabSelector = document.querySelector(`.${element}`);
+				tabSelector.addEventListener('click', function () {
+					insertContent(element);
+					tabsButtons.forEach(elem => {
+						document.querySelector(`.${elem}`).style = "background: white; color: black";
+					})
+					tabSelector.style = "background: black; color: white";
+				})
+			})
+
+		}
+		asTabs(document.querySelector("tab-panel"));
+	</script>
+</body>
+
+</html>
