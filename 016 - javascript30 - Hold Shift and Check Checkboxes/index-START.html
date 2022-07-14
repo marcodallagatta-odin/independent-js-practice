@@ -100,22 +100,25 @@
 
     let checkboxes = document.querySelectorAll('.item input');
 
-    let shift = false;
-    document.addEventListener("keyup", event => {
-      if (event.keyCode === 16) {
-        shift = false;
-      }
-    });
-    document.addEventListener("keydown", event => {
-      if (event.keyCode === 16) {
-        shift = true;
-      }
-    });
+    /////
+    // event listener way to check for shift being pressed
+    /////
+    // let shift = false;
+    // document.addEventListener("keyup", event => {
+    //   if (event.keyCode === 16) {
+    //     shift = false;
+    //   }
+    // });
+    // document.addEventListener("keydown", event => {
+    //   if (event.keyCode === 16) {
+    //     shift = true;
+    //   }
+    // });
 
     let checkedBoxes = [];
 
     checkboxes.forEach(box => {
-      box.addEventListener('change', event => {
+      box.addEventListener('click', event => {
 
         const nth = event.srcElement.dataset.nth;
 
@@ -126,7 +129,7 @@
           checkedBoxes.splice(checkedBoxes.indexOf(nth), 1)
         }
 
-        if (checkboxes.length > 1 && shift) {
+        if (checkboxes.length > 1 && event.shiftKey) {
           checkInBetween();
         }
       })
