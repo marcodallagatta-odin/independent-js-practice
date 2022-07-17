@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+  </head>
+  <body>
+    <script>
+      let log = [];
+      let result = "ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba";
+
+      function logKey(ev) {
+        log.push(ev.key);
+
+        console.log(log);
+
+        if (log.length > 9) log.splice(0, 1);
+
+        if (log.join("") === result) {
+          document.body.style.background = "blue";
+          cornify_add();
+          log = [];
+        }
+      }
+
+      document.addEventListener("keydown", logKey);
+    </script>
+  </body>
+</html>
+
+<!-- Up, Up, Down, Down, Left, Right, Left, Right, B, A -->
