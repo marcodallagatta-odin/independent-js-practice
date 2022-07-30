@@ -28,9 +28,11 @@
 
       // Add your code here
       data.forEach((mother, index) => {
-        motherInfo += mother.name;
-        if (index !== data.length - 1) motherInfo += ", ";
-        console.log(mother);
+        if (index === data.length - 1) {
+          motherInfo = motherInfo.slice(0, -2) + ` and ${mother.name}.`;
+        } else {
+          motherInfo += `${mother.name}, `;
+        }
 
         mother.kittens.forEach((kitten) => {
           total++;
@@ -39,11 +41,9 @@
       });
 
       kittenInfo = `There are in total ${total} kittens, of which ${male} males.`;
-
       // Don't edit the code below here!
-
-      para1.textContent = motherInfo;
       para2.textContent = kittenInfo;
+      para1.textContent = motherInfo;
     }
 
     section.appendChild(para1);
